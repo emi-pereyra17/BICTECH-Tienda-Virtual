@@ -22,7 +22,8 @@ export const CarritoProvider = ({ children }) => {
           return;
         }
         const data = await res.json();
-        setCarrito(data.CarritoDetalles || data.productos || []);
+        console.log("Respuesta del backend al cargar carrito:", data);
+        setCarrito(data.carritosDetalles || []);
       });
     } else {
       setCarrito([]);
@@ -42,6 +43,7 @@ export const CarritoProvider = ({ children }) => {
         },
       }
     );
+    console.log("Carrito actualizado:", carrito);
     if (!res.ok) {
       const errorData = await res.json();
       throw new Error(errorData.message || "Error al agregar producto");
@@ -57,7 +59,8 @@ export const CarritoProvider = ({ children }) => {
       return;
     }
     const data = await res2.json();
-    setCarrito(data.CarritoDetalles || data.productos || []);
+    console.log("Respuesta del backend al cargar carrito:", data);
+    setCarrito(data.carritosDetalles || []);
   };
 
   // Actualizar cantidad
@@ -87,7 +90,8 @@ export const CarritoProvider = ({ children }) => {
       return;
     }
     const data = await res2.json();
-    setCarrito(data.CarritoDetalles || data.productos || []);
+    console.log("Respuesta del backend al cargar carrito:", data);
+    setCarrito(data.carritosDetalles || []);
   };
 
   // Quitar producto
@@ -116,7 +120,8 @@ export const CarritoProvider = ({ children }) => {
       return;
     }
     const data = await res2.json();
-    setCarrito(data.CarritoDetalles || data.productos || []);
+    console.log("Respuesta del backend al cargar carrito:", data);
+    setCarrito(data.carritosDetalles || []);
   };
 
   // Vaciar carrito

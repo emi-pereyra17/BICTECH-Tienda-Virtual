@@ -380,11 +380,10 @@ const Panel = () => {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify({
-          ...pedido,
-          estado: nuevoEstadoValue,
           usuarioId: pedido.usuarioId,
           direccionEnvio: pedido.direccionEnvio,
-          productos: pedido.pedidosDetalles?.map((det) => ({
+          estado: nuevoEstadoValue,
+          detalles: pedido.pedidosDetalles?.map((det) => ({
             productoId: det.productoId,
             cantidad: det.cantidad,
             precio: det.precio,

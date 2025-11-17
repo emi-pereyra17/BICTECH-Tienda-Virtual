@@ -28,7 +28,7 @@ const CartSummary = ({ items }) => {
     }
     console.log("Items:", items);
     try {
-      const productos = items.map((item) => ({
+      const detalles = items.map((item) => ({
         productoId: item.productoId,
         cantidad: item.cantidad,
         precio: item.producto?.precio ?? 0,
@@ -43,7 +43,7 @@ const CartSummary = ({ items }) => {
         body: JSON.stringify({
           usuarioId: usuario.id,
           direccionEnvio,
-          productos,
+          detalles,
         }),
       });
 

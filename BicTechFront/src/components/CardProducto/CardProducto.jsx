@@ -33,8 +33,20 @@ function CardProducto({
       toast.error("Debes iniciar sesión para comprar.");
       navigate("/login");
     } else {
-      await agregarAlCarrito(producto.id, 1);
-      toast.success("Producto agregado al carrito!");
+      try {
+        await agregarAlCarrito(producto.id, 1);
+        toast.success("Producto agregado al carrito!");
+      } catch (error) {
+        // Mostrar mensaje específico si es error de stock
+        if (
+          error?.message?.toLowerCase().includes("stock") ||
+          error?.message?.toLowerCase().includes("suficiente")
+        ) {
+          toast.error("No hay suficiente stock disponible.");
+        } else {
+          toast.error("No se pudo agregar al carrito.");
+        }
+      }
     }
   };
 

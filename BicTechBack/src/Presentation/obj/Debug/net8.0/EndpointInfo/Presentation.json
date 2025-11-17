@@ -1768,6 +1768,10 @@
             "minLength": 0,
             "type": "string"
           },
+          "estado": {
+            "type": "integer",
+            "format": "int32"
+          },
           "detalles": {
             "minItems": 1,
             "type": "array",

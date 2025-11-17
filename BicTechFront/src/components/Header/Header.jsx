@@ -51,15 +51,7 @@ function ColorSchemesExample() {
             }}
           >
             BICHTEC
-          </Link>
-          <Link className="navbar-brand me-3" to="/">
-            <img
-              src="../../../Bichtec-Photoroom.png"
-              alt="BICHTEC Logo"
-              height="40"
-              className="d-inline-block align-text-top"
-            />
-          </Link>
+          </Link>        
           <button
             className="navbar-toggler"
             type="button"
