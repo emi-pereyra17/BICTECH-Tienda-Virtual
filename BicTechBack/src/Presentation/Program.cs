@@ -198,7 +198,6 @@ app.MapGet("/", context =>
 });
 
 // Puerto dinámico para Render
-var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
-app.Urls.Add($"http://*:{port}");
+if (!app.Environment.IsDevelopment()) { var port = Environment.GetEnvironmentVariable("PORT") ?? "5000"; app.Urls.Add($"http://*:{port}"); }
 
 app.Run();
